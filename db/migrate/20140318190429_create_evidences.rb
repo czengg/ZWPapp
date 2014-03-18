@@ -4,7 +4,7 @@ class CreateEvidences < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :photo
-      t.int :projectID
+      t.integer :projectID
       t.string :location
 
       t.timestamps
