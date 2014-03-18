@@ -1,0 +1,35 @@
+<h1>Listing evidences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Photo</th>
+      <th>Projectid</th>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evidences.each do |evidence| %>
+      <tr>
+        <td><%= evidence.name %></td>
+        <td><%= evidence.description %></td>
+        <td><%= evidence.photo %></td>
+        <td><%= evidence.projectID %></td>
+        <td><%= evidence.location %></td>
+        <td><%= link_to 'Show', evidence %></td>
+        <td><%= link_to 'Edit', edit_evidence_path(evidence) %></td>
+        <td><%= link_to 'Destroy', evidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evidence', new_evidence_path %>

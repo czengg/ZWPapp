@@ -1,4 +1,20 @@
 ZWPProto2::Application.routes.draw do
+  resources :clients
+
+  resources :companies
+
+  resources :evidences
+
+  resources :categories
+
+  resources :category_assignments
+
+  resources :tags
+
+  resources :tag_assignments
+
+  resources :projects
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

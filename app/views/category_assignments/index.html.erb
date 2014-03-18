@@ -1,0 +1,29 @@
+<h1>Listing category_assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tagid</th>
+      <th>Categoryid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @category_assignments.each do |category_assignment| %>
+      <tr>
+        <td><%= category_assignment.tagID %></td>
+        <td><%= category_assignment.categoryID %></td>
+        <td><%= link_to 'Show', category_assignment %></td>
+        <td><%= link_to 'Edit', edit_category_assignment_path(category_assignment) %></td>
+        <td><%= link_to 'Destroy', category_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category assignment', new_category_assignment_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tagid:</strong>
+  <%= @category_assignment.tagID %>
+</p>
+
+<p>
+  <strong>Categoryid:</strong>
+  <%= @category_assignment.categoryID %>
+</p>
+
+<%= link_to 'Edit', edit_category_assignment_path(@category_assignment) %> |
+<%= link_to 'Back', category_assignments_path %>

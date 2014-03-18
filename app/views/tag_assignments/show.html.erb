@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Evidenceid:</strong>
+  <%= @tag_assignment.evidenceID %>
+</p>
+
+<p>
+  <strong>Tagid:</strong>
+  <%= @tag_assignment.tagID %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @tag_assignment.rating %>
+</p>
+
+<%= link_to 'Edit', edit_tag_assignment_path(@tag_assignment) %> |
+<%= link_to 'Back', tag_assignments_path %>
