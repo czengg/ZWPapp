@@ -13,6 +13,6 @@ class Project < ActiveRecord::Base
   scope :for_company, lambda {|company_id| where('company_id = ?', company_id)}
 
   # VALIDATIONS
-  validates_presence_of :name, :company_id
+  validates_presence_of :name, :companyID
 
 end

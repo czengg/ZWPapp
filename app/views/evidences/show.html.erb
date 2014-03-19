@@ -11,8 +11,7 @@
 </p>
 
 <p>
-  <strong>Photo:</strong>
-  <%= @evidence.photo %>
+  <%= image_tag @evidence.photo.url(:medium) %>
 </p>
 
 <p>

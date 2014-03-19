@@ -9,7 +9,7 @@ class Company < ActiveRecord::Base
 
   # VALIDATIONS
   validates_presence_of :name, :address, :zip
-  validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long"
+  validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long", :multiline => true
 
   # METHODS
   def current_clients
