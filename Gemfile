@@ -31,6 +31,10 @@ gem "paperclip", "~> 4.1"
 
 gem "paperclip-dropbox", ">= 1.1.7"
 
+gem 'simple_form'
+
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
