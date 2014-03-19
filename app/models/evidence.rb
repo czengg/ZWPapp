@@ -3,11 +3,13 @@ class Evidence < ActiveRecord::Base
   # RELATIONSHIPS
   belongs_to :project
   has_many :tag_assignments
-  has_many :tags, :through => :tag_assignemnts  
+  has_many :tags, :through => :tag_assignments  
 
   has_attached_file :photo,
      :storage => :dropbox,
-     :dropbox_credentials => {app_key: "q17euwadlzuvgwh", app_secret: "tzyzh8zccfsd2ks", access_token: "1hrf35bnv13399lv", access_token_secret: "eaduj4k7k6sjnm5", user_id: "278559598", access_type: "app_folder"}
+     :dropbox_credentials => {app_key: "q17euwadlzuvgwh", app_secret: "tzyzh8zccfsd2ks", 
+      access_token: "1hrf35bnv13399lv", access_token_secret: "eaduj4k7k6sjnm5", 
+      user_id: "278559598", access_type: "app_folder"}
 
   # SCOPES
   scope :alphabetical, order('evidences.name')
@@ -24,6 +26,5 @@ class Evidence < ActiveRecord::Base
   	  errors.add(:base, "You must include either a description or photo.")
   	end
   end
->>>>>>> 230350367f4c0216ce420c4f1e0e4cd7260810f4
 
 end
