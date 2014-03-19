@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
   scope :inactive, where('projects.active = ?', false)
   scope :alphabetical, order('projects.name')
   scope :by_company, joins(:company).order('name')
-  scope :for_company, lambda {|company_id| where('company_id = ?', company_id)}
+  scope :for_company, lambda {|companyID| where('companyID = ?', companyID)}
 
   # VALIDATIONS
   validates_presence_of :name, :companyID

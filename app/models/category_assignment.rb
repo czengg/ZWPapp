@@ -6,11 +6,11 @@ class CategoryAssignment < ActiveRecord::Base
 
   # SCOPES
   scope :by_category, joins(:category).order('name')
-  scope :for_category, lambda {|category_id| where('category_id = ?', category_id)}
+  scope :for_category, lambda {|categoryID| where('categoryID = ?', categoryID)}
   scope :by_tag, joins(:tag).order('name')
-  scope :for_tag, lambda {|tag_id| where('tag_id = ?', tag_id)}
+  scope :for_tag, lambda {|tagID| where('tag_id = ?', tagID)}
 
   # VALIDATIONS
-  validates_presence_of :tag_id, :category_id
+  validates_presence_of :tagID, :categoryID
 
 end

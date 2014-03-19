@@ -7,11 +7,14 @@ class Tag < ActiveRecord::Base
 
   # SCOPES
   scope :alphabetical, order('evidences.name')
+  scope :by_evidence, => (evidenceID) { joins(:tag_assignments).where("evidenceID = ?", evidenceID) }
+  scope :not_by_evidence, => (evidenceID) { joins(:tag_assignments).where("(tagID = id and evidenceID != ?)", evidenceID) }
 
   # VALIDATIONS
   validates_presence_of :name
 
-	scope :by_evidence, ->(evidence_id) { joins(:tag_assignments).where("evidence_id = ?", evidence_id) }
-	scope :not_by_evidence, ->(evidence_id) { joins(:tag_assignments).where("(tag_id = id and evidence_id != ?)", evidence_id) }
+  # METHODS
+  def category
+    self.category_assignments
 
 end
