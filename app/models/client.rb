@@ -10,10 +10,10 @@ class Client < ActiveRecord::Base
   # SCOPES
   scope :alphabetical, order('clients.name')
   scope :by_company, joins(:company).order('name')
-  scope :for_company, lambda {|companyID| where('companyID = ?', companyID)}
+  scope :for_company, lambda {|company_id| where('company_id = ?', company_id)}
 
   # VALIDATIONS
-  validates_presence_of :name, :companyID
+  validates_presence_of :name, :company_id
   validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
   validate :contact_info_present?
 

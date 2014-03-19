@@ -1,8 +1,7 @@
-<%= simple_nested_form_for @evidence, :html => {} do |f| %>
+<%= simple_nested_form_for @evidence, :html => { :class => 'form-horizontal' } do |evidence_form| %>
   <% if @evidence.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@evidence.errors.count, "error") %> prohibited this evidence from being saved:</h2>
-
       <ul>
       <% @evidence.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,28 +9,31 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="span7">
+      <fieldset>
+        <legend><%= controller.action_name.capitalize %> Evidence</legend>
+        <%= render :partial => 'evidence_fields', :locals => { :f => evidence_form } %>
+      </fieldset>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="span5">
+      <legend>Tags for this evidence</legend>
+        <div id="evidence_attractions">
+          <%= evidence_form.simple_fields_for :tags do |tag_form| %>
+            <%= render :partial => "tag_fields", :locals => { :f => tag_form } %>
+          <% end %>
+          <p>
+            <br /><%= evidence_form.link_to_add(raw("<i class='icon-plus icon-white'></i> Add Tag"), :tags, :class => 'btn btn-mini btn-primary') %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= evidence_form.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', evidences_path, :class => 'btn' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
-  </div>
-  <div class="field">
-    <%= f.label :projectID %><br>
-    <%= f.text_field :projectID %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319171921) do
+ActiveRecord::Schema.define(version: 20140319210005) do
 
   create_table "categories", force: true do |t|
     t.datetime "created_at"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20140319171921) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
-    t.integer  "companyID"
     t.string   "phone"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active"
+    t.integer  "company_id"
   end
 
   create_table "companies", force: true do |t|
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20140319171921) do
   create_table "evidences", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "projectID"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,29 +49,30 @@ ActiveRecord::Schema.define(version: 20140319171921) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "project_id"
   end
 
   create_table "projects", force: true do |t|
     t.string   "name"
-    t.integer  "companyID"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active"
+    t.integer  "company_id"
   end
 
   create_table "tag_assignments", force: true do |t|
-    t.integer  "evidenceID"
-    t.integer  "tagID"
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "evidence_id"
+    t.integer  "tag_id"
   end
 
   create_table "tags", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "categoryID"
+    t.integer  "category_id"
   end
 
 end

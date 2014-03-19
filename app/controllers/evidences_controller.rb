@@ -10,11 +10,14 @@ class EvidencesController < ApplicationController
   # GET /evidences/1
   # GET /evidences/1.json
   def show
+    @evidence = Evidence.find(params[:id])
+    @tags = @evidence.tags.all
   end
 
   # GET /evidences/new
   def new
     @evidence = Evidence.new
+    @evidence.tags.build
   end
 
   # GET /evidences/1/edit

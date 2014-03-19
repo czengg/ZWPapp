@@ -9,12 +9,12 @@ class TagAssignment < ActiveRecord::Base
 
   # SCOPES
   scope :by_evidence, joins(:evidence).order('name')
-  scope :for_evidence, lambda {|evidenceID| where('evidenceID = ?', evidenceID)}
+  scope :for_evidence, lambda {|evidence_id| where('evidence_id = ?', evidence_id)}
   scope :by_tag, joins(:tag).order('name')
-  scope :for_tag, lambda {|tagID| where('tagID = ?', tagID)}
+  scope :for_tag, lambda {|tag_id| where('tag_id = ?', tag_id)}
 
   # VALIDATIONS
-  validates_presence_of :rating, :tagID, :evidenceID
+  validates_presence_of :rating, :tag_id, :evidence_id
 
   # METHODS
   def category

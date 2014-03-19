@@ -6,6 +6,8 @@ class Evidence < ActiveRecord::Base
   has_many :tags, :through => :tag_assignments
   has_many :categories, :through => :tags  
 
+  accepts_nested_attributes_for :tags, :reject_if => lambda { |tag| tag[:name].blank? }
+
   has_attached_file :photo,
      :storage => :dropbox,
      :dropbox_credentials => {app_key: "q17euwadlzuvgwh", app_secret: "tzyzh8zccfsd2ks", 
@@ -19,25 +21,29 @@ class Evidence < ActiveRecord::Base
   # SCOPES
   scope :alphabetical, order('evidences.name')
   scope :by_project, joins(:project).order('name')
-  scope :for_project, lambda {|projectID| where('projectID = ?', projectID)}
+  scope :for_project, lambda {|project_id| where('project_id = ?', project_id)}
 
   # VALIDATIONS
-  validates_presence_of :name, :projectID
-  # validate :evidence_info_present?
+  validates_presence_of :name, :project_id
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   validate :evidence_info_present?
 
   # METHODS
-  # def contact_info_present?
-  # 	if :description.blank? and :photo.blank?
-  # 	  errors.add(:base, "You must include either a description or photo.")
-  # 	end
+  def evidence_info_present?
+  	if :description.blank? and :photo.blank?
+  	  errors.add(:base, "You must include either a description or photo.")
+  	end
+  end
+
+  # def tags
+  #   tagIDArray = self.tag_assignments.map{|t| t.tag_id}.uniq
+  #   tagIDArray.map{|i| Tag[i].name}
   # end
 
   private
   def recommendation_score_for_collection
     sum = 0
-    self.tag_assignments.select{|t| t.category == 0}.each{|e| sum = sum+}
+    self.tag_assignments.select{|t| t.category == 0}.each{|e| sum = sum+e }
   end
 
   def recommendation_score_for_education
