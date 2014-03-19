@@ -24,5 +24,17 @@ class Client < ActiveRecord::Base
   	end
   end
 
+  # PRIVATE METHODS 
+  private
+  def reformat_phone
+    phone = self.phone.to_s  # change to string in case input as all numbers 
+    phone.gsub!(/[^0-9]/,"") # strip all non-digits
+    self.phone = phone       # reset self.phone to new string
+  end
+
+  def generate_recommendations
+    
+  end
+
 
 end
