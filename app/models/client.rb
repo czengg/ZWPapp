@@ -32,9 +32,4 @@ class Client < ActiveRecord::Base
     self.phone = phone       # reset self.phone to new string
   end
 
-  def generate_recommendations
-    
-  end
-
-
 end
