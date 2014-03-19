@@ -1,5 +1,12 @@
 class Category < ActiveRecord::Base
 
-	has many :category_assignments
+  # RELATIONSHIPS
+  has many :category_assignments
+
+  # SCOPES
+  scope :alphabetical, order('categories.name')
+
+  # VALIDATIONS
+  validates_presence_of :name
 
 end
