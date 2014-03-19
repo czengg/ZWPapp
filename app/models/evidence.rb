@@ -14,10 +14,10 @@ class Evidence < ActiveRecord::Base
   # SCOPES
   scope :alphabetical, order('evidences.name')
   scope :by_project, joins(:project).order('name')
-  scope :for_project, lambda {|project_id| where('project_id = ?', project_id)}
+  scope :for_project, lambda {|projectID| where('projectID = ?', projectID)}
 
   # VALIDATIONS
-  validates_presence_of :name, :project_id
+  validates_presence_of :name, :projectID
   validate :evidence_info_present?
 
   # METHODS
