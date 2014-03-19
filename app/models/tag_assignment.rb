@@ -16,4 +16,9 @@ class TagAssignment < ActiveRecord::Base
   # VALIDATIONS
   validates_presence_of :rating, :tagID, :evidenceID
 
+  # METHODS
+  def category
+    self.tag.category
+  end
+
 end

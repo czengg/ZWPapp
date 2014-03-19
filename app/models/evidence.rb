@@ -3,7 +3,8 @@ class Evidence < ActiveRecord::Base
   # RELATIONSHIPS
   belongs_to :project
   has_many :tag_assignments
-  has_many :tags, :through => :tag_assignments  
+  has_many :tags, :through => :tag_assignments
+  has_many :categories, :through => :tags  
 
   has_attached_file :photo,
      :storage => :dropbox,
@@ -25,6 +26,20 @@ class Evidence < ActiveRecord::Base
   	if :description.blank? and :photo.blank?
   	  errors.add(:base, "You must include either a description or photo.")
   	end
+  end
+
+  private
+  def recommendation_score_for_collection
+    sum = 0
+    self.tag_assignments.select{|t| t.category == 0}.each{|e| sum = sum+}
+  end
+
+  def recommendation_score_for_education
+    sum = 0
+  end
+
+  def recommendation_score_for_purchasing
+    sum = 0
   end
 
 end

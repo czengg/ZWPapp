@@ -13,4 +13,8 @@ class Tag < ActiveRecord::Base
   # VALIDATIONS
   validates_presence_of :name
 
+  # METHODS
+  def category
+    self.category_assignments
+
 end
