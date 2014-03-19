@@ -19,7 +19,7 @@
       <tr>
         <td><%= evidence.name %></td>
         <td><%= evidence.description %></td>
-        <td><%= evidence.photo %></td>
+        <td><%= image_tag evidence.photo.url(:thumb) %></td>
         <td><%= evidence.projectID %></td>
         <td><%= evidence.location %></td>
         <td><%= link_to 'Show', evidence %></td>
