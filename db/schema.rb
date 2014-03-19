@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318190531) do
+ActiveRecord::Schema.define(version: 20140319005246) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140318190531) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "companies", force: true do |t|
@@ -46,11 +47,14 @@ ActiveRecord::Schema.define(version: 20140318190531) do
   create_table "evidences", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "photo"
     t.integer  "projectID"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "projects", force: true do |t|
@@ -58,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140318190531) do
     t.integer  "companyID"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "tag_assignments", force: true do |t|
