@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project = Project.find(params[:id])
   end
 
   # GET /projects/new
@@ -24,7 +25,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = Project.create(project_params)
+    @project.save
 
     respond_to do |format|
       if @project.save

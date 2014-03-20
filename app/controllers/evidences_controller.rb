@@ -72,6 +72,6 @@ class EvidencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evidence_params
-      params.require(:evidence).permit(:name, :description, :photo, :projectID, :location)
+      params.require(:evidence).permit(:name, :description, :photo, :project_id, :location)
     end
 end
