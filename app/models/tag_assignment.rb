@@ -1,27 +1,7 @@
 class TagAssignment < ActiveRecord::Base
 
   # CONSTANTS
-  RATING_SCORES = [['Bad', -1], ['Neutral', 0], ['Good', 1]]
-
-  # RELATIONSHIPS
-  belongs_to :evidence
-  belongs_to :tag
-
-  # SCOPES
-  scope :by_evidence, joins(:evidence).order('name')
-  scope :for_evidence, lambda {|evidence_id| where('evidence_id = ?', evidence_id)}
-  scope :by_tag, joins(:tag).order('name')
-  scope :for_tag, lambda {|tag_id| where('tag_id = ?', tag_id)}
-
-  # VALIDATIONS
-  validates_presence_of :rating, :tag_id, :evidence_id
-
-  # METHODS
-  def category
-    self.tag.category
-  end
-
-  TAG_RATING_SECITON = [["Plastic Containers",-100,"1.A"],
+  TAG_RATING_SECTION = [["Plastic Containers",-100,"1.A"],
                        ["Glass Containers",-100,"1.A"],
                        ["Metal Containers",-100,"1.A"],
                        ["Corrugated Cardboard",-100,"1.B"],
@@ -51,5 +31,25 @@ class TagAssignment < ActiveRecord::Base
                         ['Double Sided Printing',5,'4.1'],
                         ['Other Programs',15,'4.2'],
                       ]
+
+  # RELATIONSHIPS
+  belongs_to :evidence
+  belongs_to :tag
+
+  # SCOPES
+  scope :by_evidence, joins(:evidence).order('name')
+  scope :for_evidence, lambda {|evidence_id| where('evidence_id = ?', evidence_id)}
+  scope :by_tag, joins(:tag).order('name')
+  scope :for_tag, lambda {|tag_id| where('tag_id = ?', tag_id)}
+
+  # VALIDATIONS
+  validates_presence_of :rating, :tag_id, :evidence_id
+
+  # METHODS
+  def category
+    self.tag.category
+  end
+
+  
 
 end
