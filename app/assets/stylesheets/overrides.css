@@ -13,3 +13,16 @@
 select {
 	display: block;
 }
+
+input {
+	width: 50%;
+	display: block;
+}
+
+input .btn {
+	width: 25%;
+}
+
+abbr[title] {
+	border-bottom: none;
+}
