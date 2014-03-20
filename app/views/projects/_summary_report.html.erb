@@ -10,7 +10,7 @@
 
     <tbody>
       <% project.tags.each do |tag| %>
-        <% if tag.category == 1 %>
+        <% if tag.category.id == 1 %>
           <tr>
             <td><%= tag.section %></td>
             <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>

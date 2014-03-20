@@ -5,8 +5,8 @@ class Evidence < ActiveRecord::Base
   has_many :tag_assignments
   has_many :tags, :through => :tag_assignments
   has_many :categories, :through => :tags  
-
-  accepts_nested_attributes_for :tags, :reject_if => lambda { |tag| tag[:name].blank? }
+  
+  accepts_nested_attributes_for :tag_assignments
 
   has_attached_file :photo,
      :storage => :dropbox,
