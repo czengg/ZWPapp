@@ -12,5 +12,10 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Report Summary:</strong>
+  <%= render :partial => 'summary_report', :locals => { :project => @project } %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
