@@ -9,14 +9,21 @@
     </thead>
 
     <tbody>
-      <% project.tags.each do |tag| %>
-        <% if tag.category.id == 1 %>
-          <tr>
-            <td><%= tag.section %></td>
-            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
-            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+      <% project.tag_assignments.each do |tag_assignment| %>
+        <% if tag_assignment.tag.category.id == 1 %>
+          <% if tag_assignment.rating > 0 %>
+            <tr class="green">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% else %>
+            <tr class="red">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>
@@ -32,14 +39,21 @@
     </thead>
 
     <tbody>
-      <% project.tags.each do |tag| %>
-        <% if tag.category == 2 %>
-          <tr>
-            <td><%= tag.section %></td>
-            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
-            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+      <% project.tag_assignments.each do |tag_assignment| %>
+        <% if tag_assignment.tag.category.id == 2 %>
+          <% if tag_assignment.rating > 0 %>
+            <tr class="green">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% else %>
+            <tr class="red">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>
@@ -55,14 +69,21 @@
     </thead>
 
     <tbody>
-      <% project.tags.each do |tag| %>
-        <% if tag.category == 3 %>
-          <tr>
-            <td><%= tag.section %></td>
-            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
-            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+      <% project.tag_assignments.each do |tag_assignment| %>
+        <% if tag_assignment.tag.category.id == 3 %>
+          <% if tag_assignment.rating > 0 %>
+            <tr class="green">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% else %>
+            <tr class="red">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>
@@ -78,14 +99,21 @@
     </thead>
 
     <tbody>
-      <% project.tags.each do |tag| %>
-        <% if tag.category == 4 %>
-          <tr>
-            <td><%= tag.section %></td>
-            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
-            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+      <% project.tag_assignments.each do |tag_assignment| %>
+        <% if tag_assignment.tag.category.id == 4 %>
+          <% if tag_assignment.rating > 0 %>
+            <tr class="green">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% else %>
+            <tr class="red">
+              <td><%= tag_assignment.tag.section %></td>
+              <% project.populate_hash %>
+              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            </tr>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>

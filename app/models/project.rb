@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   # RELATIONSHIPS
   has_many :evidences
   belongs_to :company
+  has_many :tag_assignments, :through => :evidences
   has_many :tags, :through => :evidences
 
   # SCOPES
