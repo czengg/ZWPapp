@@ -5,6 +5,7 @@ class EvidencesController < ApplicationController
   # GET /evidences.json
   def index
     @evidences = Evidence.all
+    
   end
 
   # GET /evidences/1
