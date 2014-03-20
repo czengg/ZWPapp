@@ -6,11 +6,10 @@ class Category < ActiveRecord::Base
   						 ['Purchasing', 2]]
 
   # RELATIONSHIPS
-  has many :category_assignments
 
   # SCOPES
   
   # VALIDATIONS
-  validates_presence_of :category_type
+  validates_presence_of :name
 
 end

@@ -3,3 +3,4 @@
 <%= f.input :photo %><br>
 <%= f.input :project_id, :collection => Project.active.alphabetical.all %>
 <%= f.input :location %><br>
+<%= f.input :tag_input, :collection => TagAssignment::TAG_RATING_SECTION  %>
