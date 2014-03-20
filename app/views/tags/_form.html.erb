@@ -11,8 +11,13 @@
     </div>
   <% end %>
 
-  <%= f.input :name %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+   <fieldset>
+
+    <%= f.input :name %> 
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', projects_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

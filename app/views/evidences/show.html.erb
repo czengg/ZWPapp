@@ -18,8 +18,10 @@
 
 
 <p>
-  <strong>Project ID:</strong>
-  <%= @evidence.project_id %>
+  <strong>Project:</strong>
+  <% if Project.all.select{|c| c.id == @evidence.project_id}.length > 0 %>
+    <%= Project.all.select{|c| c.id == @evidence.project_id}.first.name %>
+  <% end %>
 </p>
 
 <p>
