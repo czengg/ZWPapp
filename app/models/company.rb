@@ -15,5 +15,4 @@ class Company < ActiveRecord::Base
   def current_clients
   	self.clients.active.select{|c| c.company_id == self.id}.uniq
   end
-
 end

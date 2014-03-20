@@ -1,28 +1,27 @@
-<h1>Listing projects</h1>
+<fieldset>
+    <legend> Projects </legend>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Companyid</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= project.name %></td>
-        <td><%= project.company_id %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Company</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.name %></td>
+          <td><%= Company.all.select{|c| c.id == project.company_id}.first.name %></td>
+          <td><%= link_to 'Show', project %></td>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</fieldset>
 
 <br>
 
