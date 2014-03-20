@@ -55,6 +55,6 @@
 
 <br>
 <div class="btn-group">
-	<button type="button" class="btn btn-default" href="comapnies/#{@company.id}/edit">Edit</button> |
-	<button type="button" class="btn btn-default"><%= link_to 'Back', companies_path %></button>
+	<a type="button" class="btn btn-default" href="/companies/<%=@company.id%>/edit">Edit</a>
+	<a type="button" class="btn btn-default" href="<%=companies_path%>">Back</a>
 </div>
