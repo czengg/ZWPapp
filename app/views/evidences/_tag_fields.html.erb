@@ -3,6 +3,6 @@
 		<!-- x icon to remove -->
 		<%= f.link_to_remove(raw("<i class='icon-remove'></i>")) %>
 		<!-- fields -->
-		<%= f.input :name %>
+		<%= f.input :name, :collection => TagAssignment::TAG_RATING_SECTION  %>
 	</div>
 </div>

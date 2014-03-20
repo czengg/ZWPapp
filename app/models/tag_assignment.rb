@@ -1,17 +1,17 @@
 class TagAssignment < ActiveRecord::Base
 
   # CONSTANTS
-  TAG_RATING_SECTION = [["Plastic Containers",-100,"1.A"],
-                       ["Glass Containers",-100,"1.A"],
-                       ["Metal Containers",-100,"1.A"],
-                       ["Corrugated Cardboard",-100,"1.B"],
-                       ["Food Waste",20,"1.1"],
-                       ["90% Diversion Rate",25,"1.2"],
-                       ["Cooking Oil",10,"1.3"],
-                       ["Film Plastic",5, "1.4"],
-                       ['E-Waste',15,'1.6'],
-                       ['Unwanted Materials',10,'2.A'],
-                       ['Diverted and Landfilled Materials',-100,'2.B'],
+  TAG_RATING_SECTION =  [["Plastic Containers",-100,"1.A"],
+                        ["Glass Containers",-100,"1.A"],
+                        ["Metal Containers",-100,"1.A"],
+                        ["Corrugated Cardboard",-100,"1.B"],
+                        ["Food Waste",20,"1.1"],
+                        ["90% Diversion Rate",25,"1.2"],
+                        ["Cooking Oil",10,"1.3"],
+                        ["Film Plastic",5, "1.4"],
+                        ['E-Waste',15,'1.6'],
+                        ['Unwanted Materials',10,'2.A'],
+                        ['Diverted and Landfilled Materials',-100,'2.B'],
                         ['Descriptive Signage',-100,'2.C'],
                         ['Waste minimization/Recycling Policy',-100,'2.1'],
                         ['Education Singage',15,'2.2'],
@@ -49,7 +49,5 @@ class TagAssignment < ActiveRecord::Base
   def category
     self.tag.category
   end
-
-  
 
 end

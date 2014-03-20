@@ -1,34 +1,33 @@
-<h1>Listing evidences</h1>
+<fieldset>
+    <legend> Evidences </legend>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th>Project ID</th>
-      <th>Location</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @evidences.each do |evidence| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= evidence.name %></td>
-        <td><%= evidence.description %></td>
-        <td><%= image_tag evidence.photo.url(:thumb) %></td>
-        <td><%= evidence.project_id %></td>
-        <td><%= evidence.location %></td>
-        <td><%= link_to 'Show', evidence %></td>
-        <td><%= link_to 'Edit', edit_evidence_path(evidence) %></td>
-        <td><%= link_to 'Destroy', evidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Photo</th>
+        <th>Project ID</th>
+        <th>Location</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @evidences.each do |evidence| %>
+        <tr>
+          <td><%= evidence.name %></td>
+          <td><%= evidence.description %></td>
+          <td><%= image_tag evidence.photo.url(:thumb) %></td>
+          <td><%= evidence.project_id %></td>
+          <td><%= evidence.location %></td>
+          <td><%= link_to 'Show', evidence %></td>
+          <td><%= link_to 'Edit', edit_evidence_path(evidence) %></td>
+          <td><%= link_to 'Destroy', evidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</fieldset>
 
 <br>
 
