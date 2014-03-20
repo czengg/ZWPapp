@@ -1,5 +1,4 @@
-<%= simple_nested_form_for @evidence, :html => { :class => 'form-horizontal indent2' } do |evidence_form| %>
-  <% if @evidence.errors.any? %>
+<% if @evidence.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@evidence.errors.count, "error") %> prohibited this evidence from being saved:</h2>
       <ul>
@@ -10,6 +9,8 @@
     </div>
   <% end %>
 
+<%= simple_nested_form_for @evidence, :html => { :class => 'form-horizontal indent2' } do |evidence_form| %>
+  
   <div class="row">
     <div class="span7">
       <fieldset>
@@ -18,13 +19,13 @@
     </div>
 
     <div class="span5">
-      <strong class="indent2">Tags for this town</strong>
+      <strong class="indent2">Tags for this evidence</strong>
         <div id="evidence_tags">
-          <%= evidence_form.simple_fields_for :tags do |tag_form| %>
+          <%= evidence_form.simple_fields_for :tag_assignments do |tag_form| %>
             <%= render :partial => "tag_fields", :locals => { :f => tag_form } %>
           <% end %>
           <p>
-            <br /><%= evidence_form.link_to_add(raw("<i class='icon-plus icon-white'></i> Add Tag"), :tags, :class => 'btn btn-mini btn-primary indent2 inline') %>
+            <br /><%= evidence_form.link_to_add "Add Tag", :tag_assignments, :class => 'btn btn-mini btn-primary indent2 inline' %>
           </p>
         </div>
       </div>
