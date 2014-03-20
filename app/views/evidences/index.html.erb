@@ -7,6 +7,7 @@
         <th>Name</th>
         <th>Project</th>
         <th>Location</th>
+        <th>Tag</th>
       </tr>
     </thead>
 
@@ -17,6 +18,7 @@
           <td><%= link_to evidence.name, evidence %></td>
           <td><%= link_to evidence.project.name, evidence.project %></td>
           <td><%= evidence.location %></td>
+          <td><%= evidence %></td>
           <td><%= link_to 'Edit', edit_evidence_path(evidence) %></td>
           <td><%= link_to 'Delete', evidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

@@ -8,6 +8,7 @@ class Category < ActiveRecord::Base
   # RELATIONSHIPS
 
   # SCOPES
+  scope :alphabetical, order('categories.name')
   
   # VALIDATIONS
   validates_presence_of :name

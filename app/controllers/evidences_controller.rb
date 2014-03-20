@@ -5,7 +5,7 @@ class EvidencesController < ApplicationController
   # GET /evidences.json
   def index
     @evidences = Evidence.all
-    
+
   end
 
   # GET /evidences/1
@@ -73,6 +73,6 @@ class EvidencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evidence_params
-      params.require(:evidence).permit(:name, :description, :photo, :project_id, :location)
+      params.require(:evidence).permit(:name, :description, :photo, :project_id, :location, tags_attributes: [:name])
     end
 end

@@ -15,6 +15,8 @@
     <%= f.input :name %> 
     <%= f.input :section %>
     <%= f.input :max_points, :label => 'Maximum Points' %>
+    <%= f.input :category_id, :collection => Category.alphabetical.all %>
+
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

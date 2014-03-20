@@ -29,5 +29,10 @@
   <%= @evidence.location %>
 </p>
 
+<p>
+  <strong>Tag:</strong>
+  <%= @evidence.tags.map{ |e| e.name  } %>
+</p>
+
 <%= link_to 'Edit', edit_evidence_path(@evidence) %> |
 <%= link_to 'Back', evidences_path %>

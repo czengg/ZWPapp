@@ -1,4 +1,4 @@
-<%= simple_form_for @evidence, :html => { :class => 'form-horizontal' } do |evidence_form| %>
+<%= simple_nested_form_for @evidence, :html => { :class => 'form-horizontal' } do |evidence_form| %>
   <% if @evidence.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@evidence.errors.count, "error") %> prohibited this evidence from being saved:</h2>
@@ -11,6 +11,9 @@
   <% end %>
   <fieldset>
     <%= render :partial => 'evidence_fields', :locals => { :f => evidence_form } %>
+  </fieldset>
+  <fieldset>
+    <%= render :partial => 'tag_fields', :locals => { :f => evidence_form } %>
   </fieldset>
 </div>
 

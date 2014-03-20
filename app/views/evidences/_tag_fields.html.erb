@@ -1,8 +1,7 @@
 <div class="fields">
 	<div class="min_tag">
-		<!-- x icon to remove -->
-		<%= f.link_to_remove(raw("<i class='icon-remove'></i>")) %>
+		
 		<!-- fields -->
-		<%= f.input :name, :collection => TagAssignment::TAG_RATING_SECTION  %>
+		<%= f.input :name, :collection => Tag.all  %>
 	</div>
 </div>
