@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @tag.name %></h2>
+
 <p>
-  <strong>Name:</strong>
-  <%= @tag.name %>
+	<strong>Section:</strong>
+	<%= @tag.section %>
 </p>
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<p>
+	<strong>Maximum Points:</strong>
+	<%= @tag.max_points %>
+</p>
+<p>
+	<strong>Category:</strong>
+	<%= @tag.category.name %>
+</p>
+
+<div class="btn-group">
+	<a type="button" class="btn btn-default" href="/tags/<%=@tag.id%>/edit">Edit</a>
+	<a type="button" class="btn btn-default" href="<%=tags_path%>">Back</a>
+</div>

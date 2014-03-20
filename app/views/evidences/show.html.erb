@@ -34,5 +34,7 @@
   <%= @evidence.tags.map{ |e| e.name  } %>
 </p>
 
-<%= link_to 'Edit', edit_evidence_path(@evidence) %> |
-<%= link_to 'Back', evidences_path %>
+<div class="btn-group">
+  <a type="button" class="btn btn-default" href="/evidences/<%=@evidence.id%>/edit">Edit</a>
+  <a type="button" class="btn btn-default" href="<%=evidences_path%>">Back</a>
+</div>
