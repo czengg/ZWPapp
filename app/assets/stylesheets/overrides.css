@@ -39,7 +39,7 @@ input {
 	display: block;
 }
 
-input.btn.btn-primary{
+input.btn.btn-primary, .btn.btn-primary {
 	width: 10%;
 	min-width: 150px;
 	background-color: #5FBBAE;
@@ -98,4 +98,8 @@ nav.navbar .container-fluid {
 .navbar-default .navbar-nav>li>a {
 	color: white;
 	font-family: "HelveticaNeue-Light";
+}
+
+.inline {
+	display: inline-block;
 }
