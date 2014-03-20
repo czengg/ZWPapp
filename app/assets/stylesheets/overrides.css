@@ -15,6 +15,11 @@ body {
 	background-color: #F0EEF1;
 }
 
+body>p {
+	font-family: "HelveticaNeue";
+	margin-left: 1%;
+}
+
 select {
 	display: block;
 }
@@ -26,7 +31,7 @@ input {
 
 input.btn.btn-primary{
 	width: 10%;
-	min-width: 120px;
+	min-width: 150px;
 	background-color: #5FBBAE;
 	border-color: #F0EEF1;
 	text-align: center;
@@ -67,5 +72,20 @@ a:hover {
 
 table {
 	margin-left: 1%;
+	font-family: "HelveticaNeue-Light";
+}
+
+nav.navbar .container-fluid {
+	background-color: #1B6854;
+	
+	font-family: "HelveticaNeue-Light";
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: white;
 	font-family: "HelveticaNeue-Light";
 }

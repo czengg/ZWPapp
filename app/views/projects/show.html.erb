@@ -6,8 +6,10 @@
 </p>
 
 <p>
-  <strong>Companyid:</strong>
-  <%= @project.company_id %>
+  <strong>Company:</strong>
+  <% if Company.all.select{|c| c.id == @project.company_id}.length > 0 %>
+    <%= Company.all.select{|c| c.id == @project.company_id}.first.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

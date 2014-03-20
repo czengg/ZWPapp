@@ -10,7 +10,6 @@
     </div>
   <% end %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Evidence</legend>
     <%= render :partial => 'evidence_fields', :locals => { :f => evidence_form } %>
   </fieldset>
 </div>
@@ -18,6 +17,6 @@
 <div class="form-actions">
   <%= evidence_form.submit nil, :class => 'btn btn-primary' %>
   <%= link_to 'Cancel', evidences_path, :class => 'btn' %>
-
+</div>
   
 <% end %>

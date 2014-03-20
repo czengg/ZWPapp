@@ -10,11 +10,15 @@
       </ul>
     </div>
   <% end %>
+   <fieldset>
 
-  <%= f.input :name %>
-  <%= f.input :max_points %>
-  <%= f.input :section %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.input :name %> 
+    <%= f.input :section %>
+    <%= f.input :max_points, :label => 'Maximum Points' %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', projects_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>
