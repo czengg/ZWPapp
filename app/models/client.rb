@@ -5,7 +5,6 @@ class Client < ActiveRecord::Base
 
   # RELATIONSHIPS
   belongs_to :company
-  belongs_to :project, :through => :company
 
   # SCOPES
   scope :alphabetical, order('clients.name')
@@ -14,7 +13,7 @@ class Client < ActiveRecord::Base
 
   # VALIDATIONS
   validates_presence_of :name, :company_id
-  validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
+  validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true, :multiline => true
   validate :contact_info_present?
 
   # METHODS

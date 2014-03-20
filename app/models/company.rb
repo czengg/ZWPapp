@@ -5,7 +5,7 @@ class Company < ActiveRecord::Base
   has_many :clients
 
   # SCOPES
-  scope :alphabetical, order('companys.name')
+  scope :alphabetical, order('companies.name')
 
   # VALIDATIONS
   validates_presence_of :name, :address, :zip
