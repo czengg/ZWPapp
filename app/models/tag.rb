@@ -1,7 +1,7 @@
 class Tag < ActiveRecord::Base
 
   # RELATIONSHIPS
-  has_many :category_assignments
+  belongs_to :category
   has_many :tag_assignments
   has_many :projects, through: :evidences
 
@@ -15,7 +15,7 @@ class Tag < ActiveRecord::Base
 
   # METHODS
   def category
-    self.category_assignments
+    self.category
   end
 
 end

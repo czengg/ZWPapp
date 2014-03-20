@@ -10,6 +10,10 @@
 	padding: .5%;
 }
 
+.indent2 {
+	margin-left: 2%;
+}
+
 body {
 	font-family: "HelveticaNeue-Light";
 	background-color: #F0EEF1;
@@ -19,6 +23,12 @@ body>p {
 	font-family: "HelveticaNeue";
 	margin-left: 1%;
 }
+
+body>div>strong {
+	font-family: "HelveticaNeue";
+	margin-left: 1%;
+	font-size: 12px;
+} 
 
 select {
 	display: block;

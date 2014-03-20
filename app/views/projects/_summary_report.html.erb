@@ -1,0 +1,93 @@
+<div class="indent2">
+  <p><strong>Collection & Diversion</strong></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Item</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% project.tags.each do |tag| %>
+        <% if tag.category == 1 %>
+          <tr>
+            <td><%= tag.section %></td>
+            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
+            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
+            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p><strong>Education & Communications</strong></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Item</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% project.tags.each do |tag| %>
+        <% if tag.category == 2 %>
+          <tr>
+            <td><%= tag.section %></td>
+            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
+            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
+            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p><strong>Purchasing</strong></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Item</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% project.tags.each do |tag| %>
+        <% if tag.category == 3 %>
+          <tr>
+            <td><%= tag.section %></td>
+            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
+            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
+            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p><strong>Other Notable Measures</strong></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Item</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% project.tags.each do |tag| %>
+        <% if tag.category == 4 %>
+          <tr>
+            <td><%= tag.section %></td>
+            <td><%= Project::SUMMARY_SECTIONS[tag.section] %></td>
+            <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
+            <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
