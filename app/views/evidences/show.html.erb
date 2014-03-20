@@ -10,13 +10,16 @@
   <%= @evidence.description %>
 </p>
 
-<p>
-  <%= image_tag @evidence.photo.url(:medium) %>
-</p>
+<% if @evidence.photo.exists? %>
+  <p>
+    <%= image_tag @evidence.photo.url(:medium) %>
+  </p>
+<% end %>
+
 
 <p>
-  <strong>Projectid:</strong>
-  <%= @evidence.projectID %>
+  <strong>Project ID:</strong>
+  <%= @evidence.project_id %>
 </p>
 
 <p>
