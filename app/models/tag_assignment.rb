@@ -41,6 +41,8 @@ class TagAssignment < ActiveRecord::Base
   scope :for_evidence, lambda {|evidence_id| where('evidence_id = ?', evidence_id)}
   scope :by_tag, joins(:tag).order('name')
   scope :for_tag, lambda {|tag_id| where('tag_id = ?', tag_id)}
+  scope :active, where('tag_assignments.active = ?', true)
+  scope :inactive, where('tag_assignments.active = ?', false)
 
   # VALIDATIONS
   validates_presence_of :rating, :tag_id, :evidence_id

@@ -1,0 +1,2 @@
+class ParagraphAssignmentController < ApplicationController
+end

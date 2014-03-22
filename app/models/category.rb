@@ -9,6 +9,8 @@ class Category < ActiveRecord::Base
 
   # SCOPES
   scope :alphabetical, order('categories.name')
+  scope :active, where('categories.active = ?', true)
+  scope :inactive, where('categories.active = ?', false)
   
   # VALIDATIONS
   validates_presence_of :name

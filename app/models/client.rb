@@ -10,6 +10,8 @@ class Client < ActiveRecord::Base
   scope :alphabetical, order('clients.name')
   scope :by_company, joins(:company).order('name')
   scope :for_company, lambda {|company_id| where('company_id = ?', company_id)}
+  scope :active, where('clients.active = ?', true)
+  scope :inactive, where('clients.active = ?', false)
 
   # VALIDATIONS
   validates_presence_of :name, :company_id

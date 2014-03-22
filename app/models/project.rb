@@ -8,6 +8,8 @@ class Project < ActiveRecord::Base
   belongs_to :company
   has_many :tag_assignments, :through => :evidences
   has_many :tags, :through => :evidences
+  has_many :reports
+  has_many :paragraphs, :through => :reports
 
   # SCOPES
   scope :active, where('projects.active = ?', true)

@@ -22,6 +22,8 @@ class Evidence < ActiveRecord::Base
   scope :alphabetical, order('evidences.name')
   scope :by_project, joins(:project).order('name')
   scope :for_project, lambda {|project_id| where('project_id = ?', project_id)}
+  scope :active, where('evidences.active = ?', true)
+  scope :inactive, where('evidences.active = ?', false)
 
   # VALIDATIONS
   validates_presence_of :name, :project_id
