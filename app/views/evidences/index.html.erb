@@ -14,11 +14,11 @@
     <tbody>
       <% @evidences.each do |evidence| %>
         <tr>
-          <td><%= image_tag evidence.photo.url(:thumb) %></td>
+          <td><a href ="evidences/<%= evidence.id %>"><%= image_tag evidence.photo.url(:thumb) %></a></td>
           <td><%= link_to evidence.name, evidence %></td>
           <td><%= link_to evidence.project.name, evidence.project %></td>
           <td><%= evidence.location %></td>
-          <td><%= evidence.tags.map{ |e| e.name  } %></td>
+          <td><%= evidence.tags.map{ |e| e.name  }.uniq %></td>
           <td><%= link_to 'Edit', edit_evidence_path(evidence) %></td>
           <td><%= link_to 'Delete', evidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

@@ -31,7 +31,7 @@
 
 <p>
   <strong>Tag:</strong>
-  <%= @evidence.tags.map{ |e| e.name  } %>
+  <%= @evidence.tags.map{ |e| e.name  }.uniq %>
 </p>
 
 <div class="btn-group">
