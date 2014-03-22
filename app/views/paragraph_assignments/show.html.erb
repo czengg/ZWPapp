@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paragraph ID:</strong>
+  <%= @paragraph_assignment.paragraph_id %>
+</p>
+
+<p>
+  <strong>Report ID:</strong>
+  <%= @paragraph_assignment.report_id %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @paragraph_assignment.active %>
+</p>
+
+<%= link_to 'Edit', edit_paragraph_assignment_path(@paragraph_assignment) %> |
+<%= link_to 'Back', paragraph_assignments_path %>

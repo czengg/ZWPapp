@@ -1,0 +1,26 @@
+<%= simple_form_for(@paragraph) do |f| %>
+  <% if @paragraph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paragraph.errors.count, "error") %> prohibited this paragraph from being saved:</h2>
+
+      <ul>
+      <% @paragraph.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+      
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.input :section_name %>
+    <%= f.input :body_text %>
+    <%= f.input :active %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', paragraphs_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+
+<% end %>

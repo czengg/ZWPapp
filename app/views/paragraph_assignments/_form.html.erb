@@ -1,0 +1,24 @@
+<%= simple_form_for(@paragraph_assignment) do |f| %>
+  <% if @paragraph_assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paragraph_assignment.errors.count, "error") %> prohibited this paragraph_assignment from being saved:</h2>
+
+      <ul>
+      <% @paragraph_assignment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.input :paragraph_id %>
+    <%= f.input :report_id %>
+    <%= f.input :active %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', paragraph_assignments_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
