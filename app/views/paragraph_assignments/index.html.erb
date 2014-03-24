@@ -1,0 +1,28 @@
+<h1>Listing paragraph_assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paragraph ID</th>
+      <th>Report ID</th>
+      <th>Active</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paragraph_assignments.each do |paragraph_assignment| %>
+      <tr>
+        <td><%= paragraph_assignment.paragraph_id %></td>
+        <td><%= paragraph_assignment.report_id %></td>
+        <td><%= paragraph_assignment.active %></td>
+        <td><%= link_to 'Show', paragraph_assignment %></td>
+        <td><%= link_to 'Edit', edit_paragraph_assignment_path(paragraph_assignment) %></td>
+        <td><%= link_to 'Destroy', paragraph_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paragraph Assignment', new_paragraph_assignment_path %>

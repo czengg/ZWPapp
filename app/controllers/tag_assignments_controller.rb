@@ -69,6 +69,6 @@ class TagAssignmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_assignment_params
-      params.require(:tag_assignment).permit(:evidence_id, :tag_id, :rating)
+      params.require(:tag_assignment).permit(:evidence_id, :tag_id, :rating, :active)
     end
 end

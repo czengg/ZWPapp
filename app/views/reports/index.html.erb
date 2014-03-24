@@ -1,0 +1,27 @@
+<fieldset>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Name</th>
+        <th>Project</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reports.each do |report| %>
+        <tr>
+          <td><%= link_to report.name, report %></td>
+          <td><%= link_to report.project.name, report.project %></td>
+          <td><%= link_to 'Edit', edit_report_path(report) %></td>
+          <td><%= link_to 'Delete', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</fieldset>
+
+<br>
+
+<a type="button" class="btn btn-default" href="/reports/new">New Report</a>

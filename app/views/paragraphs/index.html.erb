@@ -1,0 +1,29 @@
+<fieldset>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Name</th>
+        <th>Text</th>
+        <th>Reports</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @paragraphs.each do |paragraph| %>
+        <tr>
+          <td><%= link_to paragraph.name, paragraph %></td>
+          <td><%= paragraph.text %></td>
+          <td><%= paragraph.reports.map{ |r| r.name  }.uniq %></td>
+          <td><%= link_to 'Edit', edit_paragraph_path(paragraph) %></td>
+          <td><%= link_to 'Delete', paragraph, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</fieldset>
+
+<br>
+
+<a type="button" class="btn btn-default" href="/paragraphs/new">New Paragraph</a>

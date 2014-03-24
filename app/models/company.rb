@@ -6,6 +6,8 @@ class Company < ActiveRecord::Base
 
   # SCOPES
   scope :alphabetical, order('companies.name')
+  scope :active, where('companies.active = ?', true)
+  scope :inactive, where('companies.active = ?', false)
 
   # VALIDATIONS
   validates_presence_of :name, :address, :zip

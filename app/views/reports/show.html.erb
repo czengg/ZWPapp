@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @report.name %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @report.project.name %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @report.active %>
+</p>
+
+<div class="btn-group">
+  <a type="button" class="btn btn-default" href="/reports/<%=@report.id%>/edit">Edit</a>
+  <a type="button" class="btn btn-default" href="<%=reports_path%>">Back</a>
+</div>

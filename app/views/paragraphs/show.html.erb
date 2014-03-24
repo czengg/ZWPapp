@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @paragraph.name %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @paragraph.body_text %>
+</p>
+
+<p>
+  <strong>Included in:</strong>
+  <%= @paragraph.reports.map{ |r| r.name  }.uniq %>
+</p>
+
+<div class="btn-group">
+  <a type="button" class="btn btn-default" href="/paragraphs/<%=@paragraph.id%>/edit">Edit</a>
+  <a type="button" class="btn btn-default" href="<%=paragraphs_path%>">Back</a>
+</div>
