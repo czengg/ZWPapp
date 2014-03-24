@@ -9,8 +9,10 @@
     </thead>
 
     <tbody>
-      <% project.tag_assignments.each do |tag_assignment| %>
-        <% if tag_assignment.tag.category.id == 1 %>
+      <% project.all_sections_for_project(1).each do |section| %>
+        <%= section_name(section) %>
+        <div class="show_hide" onclick="toggle()">
+        <% project.all_evidence_for_section(section) do |tag_assignment| %>
           <% if tag_assignment.rating > 0 %>
             <tr class="green">
               <td><%= tag_assignment.tag.section %></td>
@@ -24,6 +26,7 @@
               <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
             </tr>
           <% end %>
+        </div>
         <% end %>
       <% end %>
     </tbody>

@@ -54,5 +54,20 @@ class Project < ActiveRecord::Base
     SUMMARY_SECTIONS['4.2'] = 'Programs or actions that have a meaningful impact not rewarded elsewhere (subject to approval by ZWP evaluator)'
   end
 
-  
+  def evidence_for_category(category_id)
+    self.tag_assignments.select{ |t| t.tag.category_id == category_id }
+  end
+
+  def all_sections_for_project(category_id)
+    self.evidence_for_category(category_id).map{ |t| t.tag.section }.uniq
+  end
+
+  def all_evidence_for_section(section)
+    self.tag_assignments.select{ |t| t.tag.section == section }
+  end
+
+  def section_name(section)
+    populate_hash
+    self.SUMMARY_SECTIONS[section]
+  end
 end

@@ -111,3 +111,15 @@ nav.navbar .container-fluid {
 .green {
 	color: green;
 }
+
+.plus:after {
+	content: " +";
+}
+
+.minus:after {
+	content: " -";
+}
+
+.show_hide {
+	display: none;
+}
