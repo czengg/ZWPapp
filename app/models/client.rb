@@ -15,12 +15,9 @@ class Client < ActiveRecord::Base
 
   # VALIDATIONS
   validates_presence_of :name, :company_id
-  validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true, :multiline => true
+  validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "Should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true, :multiline => true
   validate :contact_info_present?
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, :allow_blank => true
-                    format:     { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+  validates_presence_of :email, :allow_blank => true, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/i, :uniqueness => true,  :case_sensitive => false 
 
   # METHODS
   def contact_info_present?

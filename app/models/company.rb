@@ -1,4 +1,7 @@
 class Company < ActiveRecord::Base
+  require 'geokit'
+  #CALLBACKS
+  before_save :zip_address
 
   # RELATIONSHIPS
   has_many :projects
@@ -16,5 +19,15 @@ class Company < ActiveRecord::Base
   # METHODS
   def current_clients
   	self.clients.active.select{|c| c.company_id == self.id}.uniq
+  end
+
+  def zip_address
+    geo = Geokit::Geocoders::MultiGeocoder.geocode(:zip)
+    puts "hello there"
+    if geo.success
+      puts "hello there"
+      address = "#{self.address}, #{geo.city}, #{geo.state}, #{geo.country}"
+      self.address = address
+    end
   end
 end
