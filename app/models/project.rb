@@ -68,6 +68,6 @@ class Project < ActiveRecord::Base
 
   def section_name(section)
     populate_hash
-    self.SUMMARY_SECTIONS[section]
+    SUMMARY_SECTIONS[section]
   end
 end

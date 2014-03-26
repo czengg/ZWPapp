@@ -5,28 +5,35 @@
       <tr>
         <th>Section</th>
         <th>Item</th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <% project.all_sections_for_project(1).each do |section| %>
-        <%= section_name(section) %>
-        <div class="show_hide" onclick="toggle()">
-        <% project.all_evidence_for_section(section) do |tag_assignment| %>
+        <tr>
+          <td><%= section %></td>
+          <td><%= project.section_name(section) %></td>
+          <td><a href="" class="show_hide" data-section=<%= section %> '' onclick="clicked(this)">+</a></td>
+        </tr>
+        <% project.all_evidence_for_section(section).each do |tag_assignment| %>
           <% if tag_assignment.rating > 0 %>
-            <tr class="green">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            <tr class="green sub" id= "<%= section %>" >
+              <td></td>
+              <td>
+                  <%= tag_assignment.evidence.name %>
+              </td>
+              <td></td>
             </tr>
           <% else %>
-            <tr class="red">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
+            <tr class="red sub"  id="<%= section %>">
+              <td></td>
+              <td>
+                  <%= tag_assignment.evidence.name %>
+              </td>
+              <td></td>
             </tr>
           <% end %>
-        </div>
         <% end %>
       <% end %>
     </tbody>
