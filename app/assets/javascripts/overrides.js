@@ -1,15 +1,20 @@
-$(document).ready(function() {
-	$(".show_hide").hide();
-	$(".show_hide").addClass("plus").show();
+var show = true
 
-	$(".show_hide").click(function() {
-		function() {
-			$(this).addClass("minus");
-			$(this).removeClass("plus");
-		},
-		function() {
-			$(this).addClass("plus");
-			$(this).removeClass("minus");
-		}
-	});
-});
+function clicked(e) {
+	console.log("here");
+	if ( show == true) {
+		console.log("in");
+		document.getElementById(
+			e.getAttribute("data-section")).className += "hide";
+		show = false;
+	}
+	else {
+		console.log("out");
+		document.getElementById(
+			e.getAttribute("data-section")).className =
+   			document.getElementById(
+   			e.getAttribute("data-section")).className.replace
+      		( /(?:^|\s)hide(?!\S)/g , '' );
+		show = true;
+	}
+}

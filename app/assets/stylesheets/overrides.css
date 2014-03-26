@@ -112,14 +112,6 @@ nav.navbar .container-fluid {
 	color: green;
 }
 
-.plus:after {
-	content: " +";
-}
-
-.minus:after {
-	content: " -";
-}
-
-.show_hide {
-	display: none;
+.hide {
+	color: blue;
 }
