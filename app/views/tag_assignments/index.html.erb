@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Evidenceid</th>
-      <th>Tagid</th>
+      <th>Evidence</th>
+      <th>Tag</th>
       <th>Rating</th>
       <th></th>
       <th></th>
@@ -15,8 +15,8 @@
   <tbody>
     <% @tag_assignments.each do |tag_assignment| %>
       <tr>
-        <td><%= tag_assignment.evidence_id %></td>
-        <td><%= tag_assignment.tag_id %></td>
+        <td><%= tag_assignment.evidence.name %></td>
+        <td><%= tag_assignment.tag.name %></td>
         <td><%= tag_assignment.rating %></td>
         <td><%= link_to 'Show', tag_assignment %></td>
         <td><%= link_to 'Edit', edit_tag_assignment_path(tag_assignment) %></td>

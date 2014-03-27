@@ -1,131 +1,55 @@
 <div class="indent2">
-  <p><strong>Collection & Diversion</strong></p>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Section</th>
-        <th>Item</th>
-        <th></th>
-      </tr>
-    </thead>
+  <% Category.all.each do |category| %>
+    <p><strong><%= category.name %></strong></p>
+    <table class="table table-striped">
 
-    <tbody>
-      <% project.all_sections_for_project(1).each do |section| %>
+      <!-- TABLE HEADING -->
+      <thead>
         <tr>
-          <td><%= section %></td>
-          <td><%= project.section_name(section) %></td>
-          <td><a href="" class="show_hide" data-section=<%= section %> '' onclick="clicked(this)">+</a></td>
+          <th>Section</th>
+          <th>Item</th>
+          <th>Points</th>
         </tr>
-        <% project.all_evidence_for_section(section).each do |tag_assignment| %>
-          <% if tag_assignment.rating > 0 %>
-            <tr class="green sub" id= "<%= section %>" >
-              <td></td>
-              <td>
-                  <%= tag_assignment.evidence.name %>
-              </td>
-              <td></td>
-            </tr>
-          <% else %>
-            <tr class="red sub"  id="<%= section %>">
-              <td></td>
-              <td>
-                  <%= tag_assignment.evidence.name %>
-              </td>
-              <td></td>
-            </tr>
-          <% end %>
+      </thead>
+
+      <tbody>
+        <% project.all_sections_for_project(category.id).each do |section| %>
+
+          <!-- SECTION -->
+          <tr>
+            <td><%= section %></td>
+            <td><%= project.section_name(section) %></td>
+            <td></td>
+          </tr>
+
+          <!-- EVIDENCES -->
+          <tr>
+            <% project.all_evidence_for_section(section).each do |tag_assignment| %>
+              <% if tag_assignment.rating > 0 || tag_assignment.rating == -99 %>
+                <tr class="green sub">
+                  <td></td>
+                  <td>
+                      <%= tag_assignment.evidence.name %>
+                  </td>
+                  <td>
+                    <%= tag_assignment.formatted_rating %>
+                  </td>
+                </tr>
+              <% else %>
+                <tr class="red sub">
+                  <td></td>
+                  <td>
+                      <%= tag_assignment.evidence.name %>
+                  </td>
+                  <td>
+                    <%= tag_assignment.formatted_rating %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tr>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-
-  <p><strong>Education & Communications</strong></p>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Section</th>
-        <th>Item</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% project.tag_assignments.each do |tag_assignment| %>
-        <% if tag_assignment.tag.category.id == 2 %>
-          <% if tag_assignment.rating > 0 %>
-            <tr class="green">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
-            </tr>
-          <% else %>
-            <tr class="red">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
-            </tr>
-          <% end %>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-
-  <p><strong>Purchasing</strong></p>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Section</th>
-        <th>Item</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% project.tag_assignments.each do |tag_assignment| %>
-        <% if tag_assignment.tag.category.id == 3 %>
-          <% if tag_assignment.rating > 0 %>
-            <tr class="green">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
-            </tr>
-          <% else %>
-            <tr class="red">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
-            </tr>
-          <% end %>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-
-  <p><strong>Other Notable Measures</strong></p>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Section</th>
-        <th>Item</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% project.tag_assignments.each do |tag_assignment| %>
-        <% if tag_assignment.tag.category.id == 4 %>
-          <% if tag_assignment.rating > 0 %>
-            <tr class="green">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
-            </tr>
-          <% else %>
-            <tr class="red">
-              <td><%= tag_assignment.tag.section %></td>
-              <% project.populate_hash %>
-              <td><%= Project::SUMMARY_SECTIONS[tag_assignment.tag.section] %></td>
-            </tr>
-          <% end %>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  <% end %>
 </div>

@@ -1,0 +1,17 @@
+<div class="indent2">
+  <table class="table table-striped">
+  	<thead>
+      <tr>
+        <th>Evidence Name</th>
+        <th></th>
+      </tr>
+    </thead>
+
+  	<% project.evidences.each do |evidence|%>
+  	  <tr>
+  	  	<td><%= evidence.name %></td>
+  	  	<td></td>
+  	  </tr>
+  	<% end %>
+  </table>
+</div>

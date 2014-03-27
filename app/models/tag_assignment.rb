@@ -52,4 +52,14 @@ class TagAssignment < ActiveRecord::Base
     self.tag.category
   end
 
+  def formatted_rating
+    if rating == -99
+      "fulfilled"
+    elsif rating == -101
+      "not fulfilled"
+    else
+      rating
+    end
+  end
+
 end

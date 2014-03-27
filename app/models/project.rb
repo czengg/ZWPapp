@@ -37,7 +37,7 @@ class Project < ActiveRecord::Base
     SUMMARY_SECTIONS['2.B'] = 'Provide & install descriptive signage'
     SUMMARY_SECTIONS['2.C'] = 'Develop an official waste minimization/recycling policy'
     SUMMARY_SECTIONS['2.1'] = 'Provide in-depth educational signage/posters on the importance of waste minimization to employees & vistors'
-    SUMMARY_SECTIONS['2.2'] = 'Integrate edUcation on waste minimization programs into new and existing employee or student training/orientation'
+    SUMMARY_SECTIONS['2.2'] = 'Integrate education on waste minimization programs into new and existing employee or student training/orientation'
     SUMMARY_SECTIONS['2.3'] = 'Develop continuing education program or curriculum on waste reduction and other environmental topics'
     SUMMARY_SECTIONS['2.4'] = 'Formalize support for waste reduction or greening efforts'
     SUMMARY_SECTIONS['2.4'] = 'Designate a recylcing coordinator'
@@ -69,5 +69,9 @@ class Project < ActiveRecord::Base
   def section_name(section)
     populate_hash
     SUMMARY_SECTIONS[section]
+  end
+
+  def evidences
+    Evidence.all.select{ |e| e.project_id == self.id }
   end
 end
