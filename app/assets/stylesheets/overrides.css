@@ -112,14 +112,21 @@ nav.navbar .container-fluid {
 	color: green;
 }
 
-.red {
-	color: red;
+.navbar-brand {
+	width: 100%;
+	display: inline-block;
 }
 
-.green {
-	color: green;
+.navbar-header {
+	width: 15%;
+}
+
+.navbar-nav {
+	display: inline-block;
+	margin-top: 5%;
 }
 
 .hide {
 	color: blue;
 }
+
