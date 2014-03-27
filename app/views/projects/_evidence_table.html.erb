@@ -9,7 +9,7 @@
 
   	<% project.evidences.each do |evidence|%>
   	  <tr>
-  	  	<td><%= evidence.name %></td>
+  	  	<td><%= link_to evidence.name, evidence %></td>
   	  	<td></td>
   	  </tr>
   	<% end %>
