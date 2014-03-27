@@ -1,11 +1,13 @@
-class ReportController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+class ReportsController < ApplicationController
+  # before_action :set_report, only: [:show, :edit, :update, :destroy]
 
   # GET /reports
   # GET /reports.json
   def index
     @reports = Report.all
+
   end
+
 
   # GET /reports/1
   # GET /reports/1.json

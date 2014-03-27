@@ -14,5 +14,9 @@ class Report < ActiveRecord::Base
 
   # VALIDATIONS
   validates_presence_of :name, :project_id
+  validate :writeReport
+
+
+
 
 end
